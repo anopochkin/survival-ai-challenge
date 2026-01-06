@@ -8,7 +8,8 @@ Survival AI is a cost-aware LLM agent that treats its API credits as Health Poin
 
 🎥 Demo
 
-👉 Demo video (Google Drive): https://drive.google.com/file/d/1B1wtBWNuB8DOOh_JMRBwEDDwzcXGE8NV/view?usp=sharing
+👉 **[Watch the demo on Google Drive](https://drive.google.com/file/d/1B1wtBWNuB8DOOh_JMRBwEDDwzcXGE8NV/view?usp=sharing)**
+
 
 The demo shows:
 
