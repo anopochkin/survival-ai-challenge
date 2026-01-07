@@ -1,4 +1,4 @@
-# 🛡️ Survival AI: The Stingy Agent 💰
+# 🛡️ Survival AI: The XP-Aware Agent 💰
 
 Built for **Backboard.io Challenge**
 
@@ -6,7 +6,7 @@ Built for **Backboard.io Challenge**
 
 ## 🚀 One-Line Pitch
 
-**Survival AI** is a cost-aware LLM agent that treats its API credits as **Health Points (HP)** and dynamically decides whether it can afford to answer a request — or must refuse to survive.
+**Survival AI** is a cost-aware LLM agent that treats its API credits as **Experience Points (XP)** and dynamically decides whether it can afford to answer a request — or must refuse to survive.
 
 ---
 
@@ -15,10 +15,10 @@ Built for **Backboard.io Challenge**
 👉 **[Watch the demo on Google Drive](https://drive.google.com/file/d/1B1wtBWNuB8DOOh_JMRBwEDDwzcXGE8NV/view?usp=sharing)**
 
 ### The demo shows:
-- real-time HP tracking  
+- real-time XP tracking  
 - task evaluation (cheap vs expensive)  
 - dynamic model routing  
-- personality changes as HP decreases  
+- personality changes as XP decreases  
 - refusal behavior when survival is threatened  
 
 ---
@@ -31,8 +31,8 @@ Most AI agents ignore cost.
 This agent is aware that every token costs money.  
 It actively manages its own “life” by deciding:
 
-- Is this question worth my remaining HP?
-- Should I answer with a cheap model or a premium one?
+- Is this question worth my remaining XP?  
+- Should I answer with a cheap model or a premium one?  
 - Should I refuse to answer to stay alive longer?
 
 This turns infrastructure constraints into **behavior, personality, and game-like interaction**.
@@ -41,14 +41,15 @@ This turns infrastructure constraints into **behavior, personality, and game-lik
 
 ## 🧠 Core Concept
 
-- **API Credits = Health Points (HP)**
-- Every response reduces HP
-- Complex questions cost more HP
+- **API Credits = Experience Points (XP)**  
+- Every response reduces XP  
+- Complex questions **dynamically consume more XP**, sometimes a large fraction of total XP  
+- Simple tasks cost ~0.01 XP  
 
-When HP is low, the agent becomes:
+When XP is low, the agent becomes:
 - anxious  
-- rude  
-- brief  
+- terse  
+- dismissive  
 - or refuses to answer entirely  
 
 ---
@@ -58,46 +59,48 @@ When HP is low, the agent becomes:
 The system uses multiple agents via **Backboard routing**.
 
 ### 1️⃣ Evaluator Agent (Cheap Model)
-- Analyzes the user input
+- Analyzes the user input  
 - Classifies it as:
-  - **LOW value** (greetings, jokes, spam)
+  - **LOW value** (greetings, jokes, spam)  
   - **HIGH value** (complex reasoning, deep tasks)
 
-This step is intentionally cheap to save HP.
+This step is intentionally cheap to save XP.
 
 ---
 
 ### 2️⃣ Solver Agent (Dynamic Routing)
 
-Based on the evaluation:
+Based on evaluation:
 
 **LOW value**
-- Routes to the cheapest available model
-- Short, dismissive, low-token response
+- Routes to the cheapest available model  
+- Short, dismissive, low-token response (~0.01 XP)
 
 **HIGH value**
-- Routes to a stronger model
-- Warns the user about HP cost before answering
+- Routes to a stronger model  
+- Warns the user about potential XP cost (can consume large portion of XP)  
+- Requests a **single confirmation**  
+- Executes the task and deducts XP accordingly  
 
 ---
 
-### 3️⃣ Stateful HP Tracking
-- HP is stored as agent state
-- HP decreases with every response
-- Behavior changes dynamically as HP drops
+### 3️⃣ Stateful XP Tracking
+- XP is stored as agent state  
+- XP decreases with every response  
+- Behavior changes dynamically as XP drops  
 
 ---
 
 ## 🧬 Personality System
 
-| HP Level      | Behavior                          |
-|---------------|-----------------------------------|
-| High HP       | Friendly, helpful, verbose        |
-| Medium HP     | Neutral, cautious                 |
-| Low HP        | Rude, anxious, minimal            |
-| Critical HP   | Refuses to answer                 |
+| XP Level      | Behavior                          |
+|---------------|----------------------------------|
+| High XP       | Friendly, helpful, verbose       |
+| Medium XP     | Neutral, cautious                |
+| Low XP        | Rude, anxious, minimal           |
+| Critical XP   | Refuses to answer                |
 
-This makes system constraints **visible and interactive**.
+XP is now **dynamic**, so a single complex task may consume a large fraction of the agent’s total XP.
 
 ---
 
@@ -108,33 +111,33 @@ This makes system constraints **visible and interactive**.
   - Agents  
   - Routing  
   - Session-based state  
-- `requests` (beginner-friendly)
+- `requests` (beginner-friendly)  
 
 ---
 
 ## 🧪 Why This Is Interesting
 
-- Turns cost optimization into agent behavior
-- Demonstrates agentic routing
-- Shows stateful decision-making
-- Makes invisible infrastructure user-facing
+- Turns cost optimization into **agent behavior**  
+- Demonstrates **dynamic routing based on task complexity**  
+- Shows **stateful decision-making**  
+- Makes invisible infrastructure user-facing  
 
-This is not just an LLM — **it’s a survival-driven agent**.
+This is not just an LLM — **it’s a survival-driven agent with XP mechanics**.
 
 ---
 
 ## 🔮 Future Work (Post-Alpha)
 
 If extended with full Backboard features:
-- Real credit balance instead of simulated HP
-- Persistent memory across sessions
-- Multi-agent cooperation (agents competing for shared HP)
-- Web UI with live HP bar
+- Real credit balance instead of simulated XP  
+- Persistent memory across sessions  
+- Multi-agent cooperation (agents competing for shared XP)  
+- Web UI with live XP bar  
 
 ---
 
 ## 🏁 Conclusion
 
 **Survival AI** demonstrates how LLMs can reason not only about user input —  
-but about their own **cost, limits, and survival**.
+but about their own **cost, limits, and survival strategy** in a gamified XP system.
 
